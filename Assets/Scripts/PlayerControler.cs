@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 
 public class PlayerControler:MonoBehaviour
 {
@@ -78,13 +79,21 @@ public class PlayerControler:MonoBehaviour
 
     private void Fire()
     {
-
+        GameObject laserInstance = laserPool.GetInstance();
+        laserInstance.transform.position = transform.position + spawnOffset;
+        laserInstance.GetComponent<Rigidbody2D>().AddForce(laserSpeed, ForceMode2D.Impulse);
     }
 
+    private void MissileFire()
+    {
+        GameObject missileInstance = missilePool.GetInstance();
+        missileInstance.transform.position = transform.position + spawnOffsetmissile;
+        missileInstance.GetComponent<Rigidbody2D>().AddForce(missileSpeed, ForceMode2D.Impulse);
+    }
     // Update is called once per frame
     void Update()
     {
-        
+        Instance = this;
         if(movementInputType == MovementInputType.ButtonBased)
         {
 #if UNITY_STANDALONE
@@ -109,11 +118,22 @@ public class PlayerControler:MonoBehaviour
 #endif
 
         }
-  
+
+#if UNITY_STANDALONE
+        if (Input.GetKeyDown(laserKey))
+            InvokeRepeating("Fire", 0.021f, laserFireRate);
+
+        if (Input.GetKeyUp(laserKey))
+            CancelInvoke("Fire");
+
+        if (Input.GetKeyDown(missileKey))
+            MissileFire();
+#endif
 
         pos.x = Mathf.Clamp(transform.position.x, minPos.x, maxPos.x);
         pos.y = Mathf.Clamp(transform.position.y, minPos.y, maxPos.y);
 
         transform.position = pos;
     }
+
 }
