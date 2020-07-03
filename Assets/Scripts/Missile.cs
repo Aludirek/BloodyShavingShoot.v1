@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Missille : MonoBehaviour
+public class Missile : MonoBehaviour
 {
     [SerializeField]
     private GameObject explosionEffect;
@@ -10,7 +10,7 @@ public class Missille : MonoBehaviour
     private float explosionEffectLength = 10f;
 
     [SerializeField]
-    private float timeToDestroy = 1f; // Czas po jakim rakieta wybuchnie jeżeli na nic nei trafi
+    private float timeToDestroy = 10f; // Czas po jakim rakieta wybuchnie jeżeli na nic nie trafi
     private bool collided = false;
 
     private float timer = 0f;

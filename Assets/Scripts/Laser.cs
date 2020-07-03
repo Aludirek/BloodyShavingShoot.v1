@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lasers : MonoBehaviour
+public class Laser : MonoBehaviour
 {
     [SerializeField]
-    private float timeToDestroy = 1f; // Czas po jakim rakieta wybuchnie jeżeli na nic nei trafi
+    private float timeToDestroy = 3f; // Czas po jakim laser zniknie jeżeli na nic nie trafi
     private bool collided = false;
 
     private float timer = 0f;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D coll)
     {
         collided = true;
     }

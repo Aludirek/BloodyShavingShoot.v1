@@ -10,17 +10,43 @@ public class ObjectPool
 
     public ObjectPool(GameObject prefab, int initialSize)
     {
+        this.prefab = prefab;
 
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+        this.pool = new List<GameObject>();
+        for (int i = 0; i < initialSize; i++)
+        {
+            AllocateInstance();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject GetInstance()
     {
-        
+        if (pool.Count == 0)
+        {
+            AllocateInstance();
+        }
+
+        int lastIndex = pool.Count - 1;
+        GameObject instance = pool[lastIndex];
+        pool.RemoveAt(lastIndex);
+
+        instance.SetActive(true);
+        return instance;
     }
+
+    public void ReturnInstance(GameObject instance)
+    {
+        instance.SetActive(false);
+        pool.Add(instance);
+    }
+
+    protected virtual GameObject AllocateInstance()
+    {
+        GameObject instance = (GameObject)GameObject.Instantiate(prefab);
+        instance.SetActive(false);
+        pool.Add(instance);
+
+        return instance;
+    }
+
 }
