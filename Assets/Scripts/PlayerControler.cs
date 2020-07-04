@@ -85,8 +85,8 @@ public class PlayerControler : MonoBehaviour
     void Start()
     {
         Instance = this;
-        laserPool = new ObjectPool(laser, laserPoolSize);
-        missilePool = new ObjectPool(missile, missilePoolSize);
+        laserPool = new ObjectPool(laser, laserPoolSize, "PlayerLaserPool");
+        missilePool = new ObjectPool(missile, missilePoolSize, "PlayerMissilePool");
     }
 
     public void ReleaseLaser(GameObject laser)

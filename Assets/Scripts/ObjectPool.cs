@@ -8,9 +8,14 @@ public class ObjectPool
 
     private List<GameObject> pool;
 
-    public ObjectPool(GameObject prefab, int initialSize)
+    private GameObject poolParent;
+    public ObjectPool(GameObject prefab, int initialSize, string poolParentName)
     {
         this.prefab = prefab;
+
+        poolParent = new GameObject(poolParentName);
+        poolParent.transform.position = Vector3.zero;
+        poolParent.transform.rotation = Quaternion.identity;
 
         this.pool = new List<GameObject>();
         for (int i = 0; i < initialSize; i++)
@@ -42,7 +47,10 @@ public class ObjectPool
 
     protected virtual GameObject AllocateInstance()
     {
-        GameObject instance = (GameObject)GameObject.Instantiate(prefab);
+        if (poolParent == null)
+            return null;
+
+        GameObject instance = (GameObject)GameObject.Instantiate(prefab, poolParent.transform);
         instance.SetActive(false);
         pool.Add(instance);
 

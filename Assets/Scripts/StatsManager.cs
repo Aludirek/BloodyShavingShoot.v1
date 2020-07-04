@@ -56,7 +56,7 @@ public class StatsManager : MonoBehaviour
             laserText.text = ("Lasers:" + noOfLasers).ToString();
         }
 
-        if (laserText != null)
+        if(missileText != null)
         {
             missileText.text = ("Missile:" + noOfMissile).ToString();
         }
