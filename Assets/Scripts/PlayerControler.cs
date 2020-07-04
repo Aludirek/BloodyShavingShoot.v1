@@ -9,11 +9,11 @@ public class PlayerControler : MonoBehaviour
     public static PlayerControler Instance;
     public enum MovementInputType
     {
-        ButtonBased
+        ButtonBased, PointerBased, TiltInput
     }
 
     [SerializeField]
-    private MovementInputType movementInputType;
+    public MovementInputType movementInputType;
     [SerializeField]
     private KeyCode left = KeyCode.LeftArrow, right = KeyCode.RightArrow;
 
@@ -21,7 +21,7 @@ public class PlayerControler : MonoBehaviour
     private VButton lvB, rvB;
 
     [SerializeField]
-    private float Speed = 10f;
+    private float Speed = 10f, SpeedAccX = 20f, SpeedAccY = 2.5f;
     [SerializeField]
     private Vector2 minPos, maxPos;
 
@@ -38,7 +38,8 @@ public class PlayerControler : MonoBehaviour
     private float laserFireRate = 0.3f;
     [SerializeField]
     private KeyCode laserKey = KeyCode.Mouse0;
-
+    [SerializeField]
+    private bool shootauto = true; //Automatycznie strzela laserem kiedy w trybie pochylenia 
     private ObjectPool laserPool;
     [SerializeField]
     private int laserPoolSize = 30;
@@ -76,6 +77,9 @@ public class PlayerControler : MonoBehaviour
     [SerializeField]
     private VButton laserVB, missileVB;
     private bool laserPressed, missilePressed;
+
+    private float laserInterval = 0.3f;
+    private float counter = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -152,6 +156,28 @@ public class PlayerControler : MonoBehaviour
                     transform.Translate(Speed * Vector2.right * Time.deltaTime);
             }
 #endif
+        }else if (movementInputType == MovementInputType.PointerBased)
+        {
+            Vector3 rawPos = Input.mousePosition;
+            Vector3 worldPos = Camera.main.ScreenToWorldPoint(rawPos);
+            if (Input.GetKey (KeyCode.Mouse0))
+            {
+                transform.position = Vector3.Lerp(transform.position, worldPos, Speed * Time.deltaTime);
+                if (shootauto)
+                {
+                    counter += Time.deltaTime;
+                    if (counter >= laserInterval)
+                    {
+                        Fire();
+                        counter = 0f;
+                    }
+                }
+            }
+
+        }else
+        {
+            //Tilt based movement
+            transform.Translate(SpeedAccX * Time.deltaTime * Input.acceleration.x, SpeedAccY * Time.deltaTime * Input.acceleration.y, 0f);
 
         }
 
