@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 193481133222699424}
   - component: {fileID: 27295835143688804}
   - component: {fileID: 28470534280513390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: glow
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -4750,11 +4750,11 @@ GameObject:
   m_Component:
   - component: {fileID: 193680304127669690}
   - component: {fileID: 5961763181442869617}
-  - component: {fileID: 5137918729920053305}
   - component: {fileID: 4448345467442796016}
-  m_Layer: 0
+  - component: {fileID: 4682018844550531188}
+  m_Layer: 9
   m_Name: PlayerLaser1
-  m_TagString: FX
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4788,7 +4788,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 1
+  m_Mass: 0.015393804
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -4797,7 +4797,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &5137918729920053305
+--- !u!114 &4448345467442796016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190563669948225090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b3c1c8fa25fc3488ce1d24b72e3442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 3
+--- !u!61 &4682018844550531188
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4821,21 +4834,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &4448345467442796016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190563669948225090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b3c1c8fa25fc3488ce1d24b72e3442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 3
 --- !u!1 &190769837448125238
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,7 +4847,7 @@ GameObject:
   - component: {fileID: 194018053817865890}
   - component: {fileID: 204689452534669540}
   - component: {fileID: 212155838500285234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: laserInner
   m_TagString: FX
   m_Icon: {fileID: 0}
@@ -4926,7 +4926,7 @@ GameObject:
   - component: {fileID: 193609799739367926}
   - component: {fileID: 8943800006814120}
   - component: {fileID: 28368240484287568}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: laserOuter
   m_TagString: FX
   m_Icon: {fileID: 0}

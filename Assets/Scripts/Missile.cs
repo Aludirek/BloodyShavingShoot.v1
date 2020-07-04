@@ -12,6 +12,8 @@ public class Missile : MonoBehaviour
     [SerializeField]
     private float timeToDestroy = 10f; // Czas po jakim rakieta wybuchnie jeżeli na nic nie trafi
     private bool collided = false;
+    [SerializeField]
+    private int damage = 100;
 
     private float timer = 0f;
     private void OnCollisionEnter2D(Collision2D collision)
@@ -22,6 +24,9 @@ public class Missile : MonoBehaviour
             GameObject explosion = Instantiate(explosionEffect, transform.position, explosionEffect.transform.rotation) as GameObject;
             Destroy(explosion, explosionEffectLength);
         }
+        if (collision.gameObject.GetComponent<HPSystem>())
+            collision.gameObject.GetComponent<HPSystem>().DecreaseHealth(damage);
+        PlayerControler.Instance.ReleaseMissile(gameObject);
     }
 
     //Sprawdzaj status collided co klatkę

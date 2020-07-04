@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Laser : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField]
-    private float timeToDestroy = 3f; // Czas po jakim laser zniknie jeżeli na nic nie trafi
-    private bool collided = false;
+    protected int damage = 25;
     [SerializeField]
-    private int damage = 25;
+    protected float timeToDestroy = 3f; // Czas po jakim pocisk zniknie jeżeli na nic nie trafi
+    [SerializeField]
+    protected bool destroyProjectile = true;
+    private bool collided = false;
 
     private float timer = 0f;
     private void OnCollisionEnter2D(Collision2D coll)
@@ -16,18 +18,20 @@ public class Laser : MonoBehaviour
         collided = true;
         if (coll.gameObject.GetComponent<HPSystem>())
             coll.gameObject.GetComponent<HPSystem>().DecreaseHealth(damage);
-        PlayerControler.Instance.ReleaseLaser(gameObject);
+        Destroy(gameObject);
     }
 
     //Sprawdzaj status collided co klatkę
     void Update()
     {
+        if (!destroyProjectile)
+            return;
         timer += Time.deltaTime;
         if ((timer >= timeToDestroy) && !collided)
         {
             timer = 0f;
             //Zniszcz
-            PlayerControler.Instance.ReleaseLaser(gameObject);
+            Destroy(gameObject);
         }
     }
 }
