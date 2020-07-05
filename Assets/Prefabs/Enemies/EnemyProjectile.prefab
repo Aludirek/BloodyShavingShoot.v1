@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5000000}
   - component: {fileID: 11400000}
   - component: {fileID: 9600000}
-  - component: {fileID: -169449265311597389}
   m_Layer: 11
   m_Name: EnemyProjectile
   m_TagString: Projectile
@@ -147,7 +146,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoot_effect: {fileID: 100002, guid: 565cdc2ed7b030a41accd8f00ae59a50, type: 3}
   hit_effect: {fileID: 100002, guid: cafecd3fc3b761c45bb1553f35cf5c96, type: 3}
-  firing_ship: {fileID: 0}
+  firing_ship: {fileID: 715681498861071209, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
+    type: 3}
+  damage: 25
+  timeToDestroy: 8
+  destroyProjectile: 1
 --- !u!96 &9600000
 TrailRenderer:
   serializedVersion: 2
@@ -254,18 +257,3 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 1
   m_Emitting: 1
---- !u!114 &-169449265311597389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf43556d9952ebb4f9fdecb8538eae50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 25
-  timeToDestroy: 3
-  destroyProjectile: 1
