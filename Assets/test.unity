@@ -738,14 +738,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 657786603}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -2097,6 +2097,16 @@ PrefabInstance:
     - target: {fileID: 4133406737604520115, guid: 726d8a17e8100484d8aa911b40c4a70a,
         type: 3}
       propertyPath: laserFireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133406737604520115, guid: 726d8a17e8100484d8aa911b40c4a70a,
+        type: 3}
+      propertyPath: laserKey
+      value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 4133406737604520115, guid: 726d8a17e8100484d8aa911b40c4a70a,
+        type: 3}
+      propertyPath: movementInputType
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
