@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
         Solo, Wave
     }
 
-    [SerializeField]private EnemyType enemyType;
+    [SerializeField]public EnemyType enemyType;
 
     private float minHeight = 0f, maxHeight = 0f, minWidth = 0f, maxWidth = 0f;
     private Vector2 vel1, vel2;
