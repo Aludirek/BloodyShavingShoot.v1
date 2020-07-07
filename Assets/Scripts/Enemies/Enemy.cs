@@ -9,7 +9,9 @@ public class Enemy : MonoBehaviour
     [SerializeField]private Vector2 projectileSpawnOffset = new Vector2(0f, -1.3f);
     [SerializeField]private Vector2 projectilieSpeed = new Vector2(0f, -1f);
     [SerializeField] private bool moveTo = true;
-    
+    public bool isBoss = false;
+    [SerializeField] private GameObject haveHP;
+
     public enum EnemyType
     {
         Solo, Wave
@@ -75,6 +77,10 @@ public class Enemy : MonoBehaviour
         smoothTime = Random.Range(0, 1);
         if (projectileToSpawn != null)
             InvokeRepeating("Fire", 0.1f, fireRate);
+        if(haveHP != null)
+        {
+            haveHP.SetActive(true);
+        }
         if(enemyType == EnemyType.Solo)
         {
             minHeight = Screen.height * 0.8f;

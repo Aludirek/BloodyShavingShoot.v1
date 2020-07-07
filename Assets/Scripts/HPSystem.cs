@@ -8,6 +8,7 @@ public class HPSystem : MonoBehaviour
     private int currentHealth;
 
     [SerializeField] private int minHealth = 0, maxHealth = 100;
+    [SerializeField] private GameObject hpBar;
     [SerializeField] private Image healthFull;
     [SerializeField] private Text healthText;
 
@@ -29,6 +30,15 @@ public class HPSystem : MonoBehaviour
 
     private void Kill()
     {
+        if(GetComponent<Enemy>())
+        {
+            if(GetComponent<Enemy>().isBoss)
+            {
+                //Poziom ukończony
+
+            }
+            EnemySpawn.enemiesDefeated++;
+        }
         Destroy(gameObject);
     }
 
@@ -50,5 +60,10 @@ public class HPSystem : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
+        if(GetComponent<Enemy>())
+        {
+            if (hpBar != null)
+                hpBar.SetActive(false);
+        }
     }
 }

@@ -7,6 +7,11 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] private int maxEnemies = 3; //Maksymalna ilosć przeciwników w tym samym czasie, jedna fala jeden przeciwnik
     [SerializeField] private GameObject[] enemiesToSpawn = new GameObject[2];
 
+    [SerializeField] private int enemyDeathsToSpawnBoss = 4; //Ilość przeciwników zanim pojawi się boss
+    [SerializeField] private GameObject hpBar;
+    [SerializeField] private GameObject enemyBossToSpawn;
+
+    public static int enemiesDefeated = 0;
     private int interval = 20;
 
     private int GetNumberOfEnemies()
@@ -36,15 +41,35 @@ public class EnemySpawn : MonoBehaviour
         }
     }
    
+
     private void Start()
     {
         SpawnEnemies();
+        if (hpBar != null)
+            hpBar.SetActive(false);
     }
 
-    
+    private void SpawnEnemyBoss()
+    {
+        if (enemyBossToSpawn != null)
+            Instantiate(enemyBossToSpawn);
+    }
+    private bool exec = false;
+
     private void Update()
     {
-        if(Time.frameCount % interval == 0)
-            SpawnEnemies();
+        if(enemiesDefeated >= enemyDeathsToSpawnBoss)
+        {
+            if(!exec)
+            {
+                //Przywołaj bossa
+                SpawnEnemyBoss();
+                exec = true;
+            }
+        }else
+        {
+            if (Time.frameCount % interval == 0)
+                SpawnEnemies();
+        }
     }
 }
