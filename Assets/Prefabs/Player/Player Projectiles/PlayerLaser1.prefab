@@ -4750,8 +4750,9 @@ GameObject:
   m_Component:
   - component: {fileID: 193680304127669690}
   - component: {fileID: 5961763181442869617}
-  - component: {fileID: 4448345467442796016}
   - component: {fileID: 4682018844550531188}
+  - component: {fileID: -1064938887776466825}
+  - component: {fileID: -8843770829624415450}
   m_Layer: 9
   m_Name: PlayerLaser1
   m_TagString: Untagged
@@ -4788,7 +4789,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.015393804
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -4797,20 +4798,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &4448345467442796016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 190563669948225090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b3c1c8fa25fc3488ce1d24b72e3442, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeToDestroy: 3
-  damage: 25
 --- !u!61 &4682018844550531188
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4837,6 +4824,40 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-1064938887776466825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190563669948225090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304f3693f902a6540be5ae2c4a6f0957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shoot_effect: {fileID: 1000012903210382, guid: 4545aa9bc2cad74409a86e4e3c2bed9b,
+    type: 3}
+  hit_effect: {fileID: 1879272669879180, guid: ea1bc5884e0d9de4b92ff44d5fe86d3c, type: 3}
+  firing_ship: {fileID: 4133406737604520112, guid: 726d8a17e8100484d8aa911b40c4a70a,
+    type: 3}
+  damage: 25
+  timeToDestroy: 3
+  destroyProjectile: 1
+--- !u!114 &-8843770829624415450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190563669948225090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b3c1c8fa25fc3488ce1d24b72e3442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 3
+  damage: 25
 --- !u!1 &190769837448125238
 GameObject:
   m_ObjectHideFlags: 0
