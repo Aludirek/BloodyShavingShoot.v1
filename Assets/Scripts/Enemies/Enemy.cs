@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]private GameObject projectileToSpawn; // Pociski dla przeciwników
-    [SerializeField]private float fireRate = 0.3f;
-    [SerializeField]private Vector2 projectileSpawnOffset = new Vector2(0f, -1.3f);
-    [SerializeField]private Vector2 projectilieSpeed = new Vector2(0f, -1f);
+    [SerializeField] private GameObject projectileToSpawn; // Pociski dla przeciwników
+    [SerializeField] private float fireRate = 0.3f;
+    [SerializeField] private Vector2 projectileSpawnOffset = new Vector2(0f, -1.3f);
+    [SerializeField] private Vector2 projectilieSpeed = new Vector2(0f, -1f);
     [SerializeField] private bool moveTo = true;
+    [SerializeField] private int scoreInc = 10; // Zwiększa score po zabicu przeciwnika
     public bool isBoss = false;
     [SerializeField] private GameObject haveHP;
 
+    public int ScoreToIncrease { get { return scoreInc; } }
     public enum EnemyType
     {
         Solo, Wave

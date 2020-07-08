@@ -33,6 +33,7 @@ public class HPSystem : MonoBehaviour
     {
         if(GetComponent<Enemy>())
         {
+            Score.Instance.IncreaseScore(GetComponent<Enemy>().ScoreToIncrease);
             if(GetComponent<Enemy>().isBoss)
             {
                 //Poziom ukończony

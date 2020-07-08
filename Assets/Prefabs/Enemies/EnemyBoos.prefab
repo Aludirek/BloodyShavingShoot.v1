@@ -104,6 +104,7 @@ MonoBehaviour:
   projectileSpawnOffset: {x: 0, y: -1.3}
   projectilieSpeed: {x: 0, y: -1}
   moveTo: 1
+  scoreInc: 100
   isBoss: 1
   haveHP: {fileID: 0}
   enemyType: 0
