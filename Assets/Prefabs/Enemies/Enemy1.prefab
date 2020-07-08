@@ -101,6 +101,11 @@ MonoBehaviour:
   fireRate: 1.5
   projectileSpawnOffset: {x: 0, y: -0.7}
   projectilieSpeed: {x: 0, y: -2}
+  moveTo: 1
+  isBoss: 0
+  haveHP: {fileID: 0}
+  enemyType: 0
+  smoothTime: 1
 --- !u!114 &715681498861071214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +120,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minHealth: 1
   maxHealth: 100
+  hpBar: {fileID: 0}
+  healthFull: {fileID: 0}
+  healthText: {fileID: 0}
 --- !u!50 &715681498861071219
 Rigidbody2D:
   serializedVersion: 4
@@ -123,7 +131,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715681498861071209}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

@@ -21,11 +21,12 @@ public class HPSystem : MonoBehaviour
 
     public void DecreaseHealth(int amount = 1)
     {
-        if (currentHealth <= minHealth)
-            Kill();
         if (currentHealth > minHealth)
             currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, minHealth, maxHealth);
+
+        if (currentHealth <= minHealth)
+            Kill();
     }
 
     private void Kill()

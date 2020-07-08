@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     private void Fire()
     {
         Vector2 targetPos = new Vector2(transform.position.x + projectileSpawnOffset.x, transform.position.y + projectileSpawnOffset.y);
-        GameObject proj = Instantiate(projectileToSpawn, targetPos, projectileToSpawn.transform.rotation, transform) as GameObject;
+        GameObject proj = Instantiate(projectileToSpawn, targetPos, projectileToSpawn.transform.rotation) as GameObject;
         if (proj.GetComponent<Rigidbody2D>())
             proj.GetComponent<Rigidbody2D>().AddForce(projectilieSpeed, ForceMode2D.Impulse);
     }
