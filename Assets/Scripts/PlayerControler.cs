@@ -7,13 +7,9 @@ using UnityEngine.Rendering;
 public class PlayerControler : MonoBehaviour
 {
     public static PlayerControler Instance;
-    public enum MovementInputType
-    {
-        ButtonBased, PointerBased, TiltInput
-    }
 
     [SerializeField]
-    public MovementInputType movementInputType;
+    public GameMenu.PlayerMovementInputType movementInputType;
     [SerializeField]
     private KeyCode left = KeyCode.LeftArrow, right = KeyCode.RightArrow;
 
@@ -134,16 +130,20 @@ public class PlayerControler : MonoBehaviour
     {
         Instance = this;
         GetInput();
-        if(movementInputType == MovementInputType.ButtonBased)
+        if (GameMenu.Instance != null)
+        {
+            movementInputType = GameMenu.Instance.CurrenPMIT;
+            Destroy(GameMenu.Instance.gameObject);
+        }
+        if(movementInputType == GameMenu.PlayerMovementInputType.ButtonBased)
         {
 #if UNITY_STANDALONE
-            //Test klawiszy
-            /*
+            
             if (Input.GetKey(left))
                 transform.Translate(Speed * Vector2.left * Time.deltaTime);
             else if (Input.GetKey(right))
                 transform.Translate(Speed * Vector2.right * Time.deltaTime);
-            */
+            
 #endif
            
 #if UNITY_ANDROID
@@ -156,7 +156,7 @@ public class PlayerControler : MonoBehaviour
                     transform.Translate(Speed * Vector2.right * Time.deltaTime);
             }
 #endif
-        }else if (movementInputType == MovementInputType.PointerBased)
+        }else if (movementInputType == GameMenu.PlayerMovementInputType.PointerBased)
         {
             Vector3 rawPos = Input.mousePosition;
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(rawPos);

@@ -8,11 +8,11 @@ public class ControlSwitch : MonoBehaviour
     {
         if (PlayerControler.Instance == null)
             return;
-        if (PlayerControler.Instance.movementInputType == PlayerControler.MovementInputType.ButtonBased)
-            PlayerControler.Instance.movementInputType = PlayerControler.MovementInputType.PointerBased;
-        else if (PlayerControler.Instance.movementInputType == PlayerControler.MovementInputType.PointerBased)
-            PlayerControler.Instance.movementInputType = PlayerControler.MovementInputType.TiltInput;
+        if (PlayerControler.Instance.movementInputType == GameMenu.PlayerMovementInputType.ButtonBased)
+            PlayerControler.Instance.movementInputType = GameMenu.PlayerMovementInputType.PointerBased;
+        else if (PlayerControler.Instance.movementInputType == GameMenu.PlayerMovementInputType.PointerBased)
+            PlayerControler.Instance.movementInputType = GameMenu.PlayerMovementInputType.TiltInput;
         else
-            PlayerControler.Instance.movementInputType = PlayerControler.MovementInputType.ButtonBased;
+            PlayerControler.Instance.movementInputType = GameMenu.PlayerMovementInputType.ButtonBased;
     }
 }

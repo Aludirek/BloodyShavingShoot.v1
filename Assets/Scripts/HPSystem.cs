@@ -40,6 +40,9 @@ public class HPSystem : MonoBehaviour
 
             }
             EnemySpawn.enemiesDefeated++;
+        }else if(GetComponent<PlayerControler>())
+        {
+            GameObject.FindObjectOfType<GameUI>().GameOver(); //Kończy gre 
         }
         Destroy(gameObject);
     }
