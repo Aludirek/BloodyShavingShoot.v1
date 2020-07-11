@@ -163,6 +163,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 715681498861071214, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 1588689512203370311, guid: 50c3b7c750b17f24da8f1a7cdaa42091,
+        type: 3}
+    - target: {fileID: 715681498861071214, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
+        type: 3}
+      propertyPath: explSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 16086ca161687493c91cc227877cbbb1, type: 3}
     - target: {fileID: 715681498861071215, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
         type: 3}
       propertyPath: fireRate
@@ -283,6 +294,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 715681498861071214, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 1588689512203370311, guid: 50c3b7c750b17f24da8f1a7cdaa42091,
+        type: 3}
+    - target: {fileID: 715681498861071214, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
+        type: 3}
+      propertyPath: explSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 16086ca161687493c91cc227877cbbb1, type: 3}
     - target: {fileID: 715681498861071215, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
         type: 3}
       propertyPath: fireRate
@@ -403,6 +425,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 715681498861071214, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 1588689512203370311, guid: 50c3b7c750b17f24da8f1a7cdaa42091,
+        type: 3}
+    - target: {fileID: 715681498861071214, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
+        type: 3}
+      propertyPath: explSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: 16086ca161687493c91cc227877cbbb1, type: 3}
     - target: {fileID: 715681498861071215, guid: 58bf0c1b12b8aec48a5652b65fb71e66,
         type: 3}
       propertyPath: fireRate

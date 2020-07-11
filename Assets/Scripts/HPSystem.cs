@@ -12,6 +12,9 @@ public class HPSystem : MonoBehaviour
     [SerializeField] private Image healthFull;
     [SerializeField] private Text healthText;
 
+    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private AudioClip explSfx;
+    private AudioSource _adSrc;
     public void IncreaseHealth(int amount = 1)
     {
         if (currentHealth < maxHealth)
@@ -28,9 +31,21 @@ public class HPSystem : MonoBehaviour
         if (currentHealth <= minHealth)
             Kill();
     }
-
+    private void Explode()
+    {
+        // Animacja wybuchu gracza
+        if (explosionEffect == null)
+            return;
+        Instantiate(explosionEffect, transform.position, explosionEffect.transform.rotation);
+        if(explosionEffect !=null)
+        {
+            _adSrc.PlayOneShot(explSfx);
+            AudioSource.PlayClipAtPoint(explSfx, transform.position, 1f);
+        }
+    }
     private void Kill()
     {
+        Explode();
         if(GetComponent<Enemy>())
         {
             Score.Instance.IncreaseScore(GetComponent<Enemy>().ScoreToIncrease);
@@ -44,7 +59,8 @@ public class HPSystem : MonoBehaviour
         {
             GameObject.FindObjectOfType<GameUI>().GameOver(); //Kończy gre 
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        Destroy(gameObject, 1f);
     }
 
     private float FillAmount()
@@ -53,22 +69,23 @@ public class HPSystem : MonoBehaviour
     }
     private void Update()
     {
-        if (currentHealth <= minHealth)
-            Kill();
-
         if (healthText != null)
             healthText.text = currentHealth.ToString();
         if (healthFull != null)
             healthFull.fillAmount = FillAmount();
+
+        if (currentHealth <= minHealth)
+            Kill();
     }
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        if(GetComponent<Enemy>())
-        {
-            if (hpBar != null)
-                hpBar.SetActive(false);
-        }
+        if (GetComponent<AudioSource>())
+            gameObject.AddComponent<AudioSource>();
+        _adSrc = GetComponent<AudioSource>();
+        _adSrc.volume = 1f;
+        _adSrc.loop = false;
+        _adSrc.playOnAwake = false;
     }
 }
