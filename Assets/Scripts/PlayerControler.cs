@@ -8,36 +8,24 @@ public class PlayerControler : MonoBehaviour
 {
     public static PlayerControler Instance;
 
-    [SerializeField]
-    public GameMenu.PlayerMovementInputType movementInputType;
-    [SerializeField]
-    private KeyCode left = KeyCode.LeftArrow, right = KeyCode.RightArrow;
+    [SerializeField] public GameMenu.PlayerMovementInputType movementInputType;
+    [SerializeField] private KeyCode left = KeyCode.LeftArrow, right = KeyCode.RightArrow;
+    [SerializeField] private VButton lvB, rvB;
 
-    [SerializeField]
-    private VButton lvB, rvB;
-
-    [SerializeField]
-    private float Speed = 10f, SpeedAccX = 20f, SpeedAccY = 2.5f;
-    [SerializeField]
-    private Vector2 minPos, maxPos;
+    [SerializeField] private float Speed = 10f, SpeedAccX = 20f, SpeedAccY = 2.5f;
+    [SerializeField] private Vector2 minPos, maxPos;
 
     private Vector2 pos;
 
     [Header("Laser")]
-    [SerializeField]
-    private GameObject laser;
-    [SerializeField]
-    private Vector2 laserSpeed = new Vector2(0f, 3f);
-    [SerializeField]
-    private Vector3 spawnOffset;
-    [SerializeField]
-    private float laserFireRate = 0.3f;
-    [SerializeField]
-    private KeyCode laserKey = KeyCode.Mouse0;
-    [SerializeField]
-    private bool shootauto = true; //Automatycznie strzela laserem kiedy w trybie pochylenia 
-    private ObjectPool laserPool;
-    [SerializeField]
+    [SerializeField] private GameObject laser;
+    [SerializeField] private AudioClip laserSFX;
+    [SerializeField] private Vector2 laserSpeed = new Vector2(0f, 3f);
+    [SerializeField] private Vector3 spawnOffset;
+    [SerializeField] private float laserFireRate = 0.3f;
+    [SerializeField] private KeyCode laserKey = KeyCode.Mouse0;
+    [SerializeField] private bool shootauto = true; //Automatycznie strzela laserem kiedy w trybie pochylenia 
+    private ObjectPool laserPool;[SerializeField]
     private int laserPoolSize = 30;
 
     /*[Header("Laser2")]
@@ -57,21 +45,16 @@ public class PlayerControler : MonoBehaviour
     private int laserPoolSize2 = 30;
     */
     [Header("Missile")]
-    [SerializeField]
-    private GameObject missile;
-    [SerializeField]
-    private Vector2 missileSpeed = new Vector2(0f, 0.5f);
-    [SerializeField]
-    private Vector3 spawnOffsetMissile;
-    [SerializeField]
-    private KeyCode missileKey = KeyCode.Mouse3;
+    [SerializeField] private GameObject missile;
+    [SerializeField] private AudioClip missileSFX;
+    [SerializeField] private Vector2 missileSpeed = new Vector2(0f, 0.5f);
+    [SerializeField] private Vector3 spawnOffsetMissile;
+    [SerializeField] private KeyCode missileKey = KeyCode.Mouse3;
 
     private ObjectPool missilePool;
-    [SerializeField]
-    private int missilePoolSize = 30;
+    [SerializeField] private int missilePoolSize = 30;
 
-    [SerializeField]
-    private VButton laserVB, missileVB;
+    [SerializeField] private VButton laserVB, missileVB;
     private bool laserPressed, missilePressed;
 
     private float laserInterval = 0.3f;
@@ -103,6 +86,8 @@ public class PlayerControler : MonoBehaviour
             laserInstance.transform.position = transform.position + spawnOffset;
             laserInstance.GetComponent<Rigidbody2D>().AddForce(laserSpeed, ForceMode2D.Impulse);
             StatsManager.Instance.ShootLaserByAmount(1);
+            if (GameSFX.Instance != null && laserSFX != null)
+                GameSFX.Instance.PlaySFX(laserSFX, 0.4f);
         }
     }
 
@@ -114,6 +99,8 @@ public class PlayerControler : MonoBehaviour
             missileInstance.transform.position = transform.position + spawnOffsetMissile;
             missileInstance.GetComponent<Rigidbody2D>().AddForce(missileSpeed, ForceMode2D.Impulse);
             StatsManager.Instance.ShootMissileByAmount(1);
+            if (GameSFX.Instance != null && missileSFX != null)
+                GameSFX.Instance.PlaySFX(missileSFX, 0.5f);
         }
     }
 

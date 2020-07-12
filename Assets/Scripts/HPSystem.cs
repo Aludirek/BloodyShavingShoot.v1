@@ -14,7 +14,7 @@ public class HPSystem : MonoBehaviour
 
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private AudioClip explSfx;
-    private AudioSource _adSrc;
+    
     public void IncreaseHealth(int amount = 1)
     {
         if (currentHealth < maxHealth)
@@ -39,8 +39,8 @@ public class HPSystem : MonoBehaviour
         Instantiate(explosionEffect, transform.position, explosionEffect.transform.rotation);
         if(explosionEffect !=null)
         {
-            _adSrc.PlayOneShot(explSfx);
-            AudioSource.PlayClipAtPoint(explSfx, transform.position, 1f);
+            if (GameSFX.Instance != null)
+                GameSFX.Instance.PlaySFX(explSfx, 0.6f);
         }
     }
     private void Kill()
@@ -57,6 +57,8 @@ public class HPSystem : MonoBehaviour
             EnemySpawn.enemiesDefeated++;
         }else if(GetComponent<PlayerControler>())
         {
+            if (Score.Instance != null)
+                Score.Instance.SetHighScore();
             GameObject.FindObjectOfType<GameUI>().GameOver(); //Kończy gre 
         }
         gameObject.SetActive(false);
@@ -81,11 +83,5 @@ public class HPSystem : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        if (GetComponent<AudioSource>())
-            gameObject.AddComponent<AudioSource>();
-        _adSrc = GetComponent<AudioSource>();
-        _adSrc.volume = 1f;
-        _adSrc.loop = false;
-        _adSrc.playOnAwake = false;
     }
 }

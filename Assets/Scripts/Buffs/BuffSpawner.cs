@@ -10,7 +10,6 @@ public class BuffSpawner : MonoBehaviour
 
     private float timer = 0f;
 
-    // Update is called once per frame
     void Update()
     {
         int n = Random.Range(0, buffs.Length);

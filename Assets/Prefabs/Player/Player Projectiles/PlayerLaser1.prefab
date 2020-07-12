@@ -4840,6 +4840,7 @@ MonoBehaviour:
     type: 3}
   hit_effect: {fileID: 1879272669879180, guid: ea1bc5884e0d9de4b92ff44d5fe86d3c, type: 3}
   firing_ship: {fileID: 0}
+  laserSFX: {fileID: 8300000, guid: d8ef6c15dcdd04f5aaeb3d1e73e8e93b, type: 3}
   damage: 25
   timeToDestroy: 3
   destroyProjectile: 1

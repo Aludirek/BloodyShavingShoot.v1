@@ -4,16 +4,11 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject explosionEffect;
-    [SerializeField]
-    private float explosionEffectLength = 10f;
-
-    [SerializeField]
-    private float timeToDestroy = 10f; // Czas po jakim rakieta wybuchnie jeżeli na nic nie trafi
+    [SerializeField]private GameObject explosionEffect;
+    [SerializeField] private float explosionEffectLength = 10f;
+    [SerializeField]private float timeToDestroy = 10f; // Czas po jakim rakieta wybuchnie jeżeli na nic nie trafi
     private bool collided = false;
-    [SerializeField]
-    private int damage = 100;
+    [SerializeField]private int damage = 100;
 
     private float timer = 0f;
     private void OnCollisionEnter2D(Collision2D collision)
