@@ -4695,8 +4695,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74d7c1849075b024cbaaa7e3fbfc6e4b, type: 2}
-  - {fileID: 2100000, guid: 74d7c1849075b024cbaaa7e3fbfc6e4b, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4768,7 +4768,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190563669948225090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.608, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 194018053817865890}
@@ -4836,14 +4836,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 304f3693f902a6540be5ae2c4a6f0957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoot_effect: {fileID: 1000012903210382, guid: 4545aa9bc2cad74409a86e4e3c2bed9b,
+  shoot_effect: {fileID: 1523153560657062, guid: 67b372773d6d7bc4cb07f0856deb29cc,
     type: 3}
-  hit_effect: {fileID: 1879272669879180, guid: ea1bc5884e0d9de4b92ff44d5fe86d3c, type: 3}
-  firing_ship: {fileID: 0}
-  laserSFX: {fileID: 8300000, guid: d8ef6c15dcdd04f5aaeb3d1e73e8e93b, type: 3}
-  damage: 25
-  timeToDestroy: 3
-  destroyProjectile: 1
+  hit_effect: {fileID: 1879272669879180, guid: af5bf0cb1fb1c6245ba9dc0ae4e07a0b, type: 3}
+  firing_ship: {fileID: 1000012903210382, guid: bfeb56abfb8299f409bb486263c36ae5,
+    type: 3}
 --- !u!114 &-8843770829624415450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4916,7 +4913,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 41833273f32b10d47b2e6ec751448a6a, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9704,8 +9701,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5443f785d54fccc40bcfb484c85d5c77, type: 2}
-  - {fileID: 2100000, guid: 5443f785d54fccc40bcfb484c85d5c77, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

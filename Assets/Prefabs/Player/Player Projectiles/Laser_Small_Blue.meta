@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: c8abeeb25b3d7b545b29c9ddb1ea35f6
+guid: 30d6ef19aa407fc43974771cd9c8c2fb
+labels:
+- Effect
 folderAsset: yes
+timeCreated: 1512667800
+licenseType: Store
 DefaultImporter:
   externalObjects: {}
   userData: 

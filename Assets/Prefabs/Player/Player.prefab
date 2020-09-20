@@ -105,6 +105,7 @@ MonoBehaviour:
   minPos: {x: -10.8, y: -4}
   maxPos: {x: 10.8, y: 1}
   laser: {fileID: 190563669948225090, guid: 19449226977f60941a75324aa13a7666, type: 3}
+  laserSFX: {fileID: 0}
   laserSpeed: {x: 0, y: 4.5}
   spawnOffset: {x: 0, y: 1.5, z: 0}
   laserFireRate: 0.2
@@ -112,6 +113,7 @@ MonoBehaviour:
   shootauto: 1
   laserPoolSize: 30
   missile: {fileID: 1896621806035036880, guid: b42be0e11916b074b9fcf6fe1e4d59d4, type: 3}
+  missileSFX: {fileID: 0}
   missileSpeed: {x: 0, y: 0.25}
   spawnOffsetMissile: {x: 0, y: 2, z: 0}
   missileKey: 324

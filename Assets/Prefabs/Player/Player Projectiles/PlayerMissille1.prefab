@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: cc2721dc8706a474b97273837abcf0b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1867c63f4b4e244c992f73253c00aa4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.08, y: 0.25}
+  m_Size: {x: 0.15, y: 0.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -117,9 +117,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7852de404e045ed43850a553a3e47421, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 100002, guid: b8a82b231e713d34885b3b5ab182d736, type: 3}
   explosionEffectLength: 10
   timeToDestroy: 4
+  damage: 100
 --- !u!61 &1896621806035036881
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -137,8 +138,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.08, y: 0.25}
-    newSize: {x: 0.08, y: 0.25}
+    oldSize: {x: 0.15, y: 0.26}
+    newSize: {x: 0.15, y: 0.26}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

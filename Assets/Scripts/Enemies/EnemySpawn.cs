@@ -46,7 +46,7 @@ public class EnemySpawn : MonoBehaviour
     {
         SpawnEnemies();
         if (hpBar != null)
-            hpBar.SetActive(false);
+            hpBar.SetActive(true);
     }
 
     private void SpawnEnemyBoss()

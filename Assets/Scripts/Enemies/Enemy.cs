@@ -55,12 +55,12 @@ public class Enemy : MonoBehaviour
             }
             else
             {
-                if (transform.position.x - 0.1f <= minW.x)
+                if (transform.position.x - 0.2f <= minW.x)
                 {
                     closerToMin = true;
                     closerToMax = false;
                 }
-                if (transform.position.x + 0.1f >= maxW.x)
+                if (transform.position.x + 0.2f >= maxW.x)
                 {
                     closerToMax = true;
                     closerToMin = false;
